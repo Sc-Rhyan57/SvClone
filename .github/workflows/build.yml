@@ -36,10 +36,16 @@ jobs:
           distribution: zulu
           java-version: 21
 
+      - name: Clear Gradle Cache
+        run: |
+          rm -rf ~/.gradle/caches/
+          rm -rf ~/.gradle/wrapper/
+
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
         with:
           gradle-version: "8.2"
+          cache-read-only: false
 
       - name: Generate Gradle Wrapper
         run: |
@@ -50,9 +56,9 @@ jobs:
         run: |
           PLUGIN="${{ github.event.inputs.plugin_name }}"
           if [ -z "$PLUGIN" ]; then
-            ./gradlew :SvClone:make --no-daemon --stacktrace
+            ./gradlew :SvClone:make --no-daemon --stacktrace --refresh-dependencies
           else
-            ./gradlew :${PLUGIN}:make --no-daemon --stacktrace
+            ./gradlew :${PLUGIN}:make --no-daemon --stacktrace --refresh-dependencies
           fi
 
       - name: Upload plugin artifact
