@@ -11,7 +11,7 @@ buildscript {
     dependencies {
         classpath("com.android.tools.build:gradle:7.0.4")
         classpath("com.aliucord:gradle:main-SNAPSHOT")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.21")
     }
 }
 
@@ -42,10 +42,10 @@ subprojects {
     }
 
     android {
-        compileSdkVersion(33)
+        compileSdkVersion(31)
         defaultConfig {
             minSdk = 24
-            targetSdk = 33
+            targetSdk = 31
         }
         compileOptions {
             sourceCompatibility = JavaVersion.VERSION_11
