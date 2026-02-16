@@ -5,13 +5,13 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        maven("https://jitpack.io")
         maven("https://maven.aliucord.com/snapshots")
         maven("https://maven.aliucord.com/releases")
+        maven("https://jitpack.io")
     }
     dependencies {
         classpath("com.android.tools.build:gradle:7.0.4")
-        classpath("com.github.Aliucord:gradle:main-SNAPSHOT")
+        classpath("com.aliucord:gradle:main-SNAPSHOT")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.22")
     }
 }
@@ -20,9 +20,9 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-        maven("https://jitpack.io")
         maven("https://maven.aliucord.com/snapshots")
         maven("https://maven.aliucord.com/releases")
+        maven("https://jitpack.io")
     }
 }
 
@@ -67,5 +67,20 @@ subprojects {
                 jvmTarget = "11"
             }
         }
+    }
+
+    repositories {
+        google()
+        mavenCentral()
+        maven("https://maven.aliucord.com/snapshots")
+        maven("https://jitpack.io")
+    }
+
+    dependencies {
+        val discord by configurations
+        val compileOnly by configurations
+
+        discord("com.discord:discord:aliucord-SNAPSHOT")
+        compileOnly("com.aliucord:Aliucord:main-SNAPSHOT")
     }
 }
