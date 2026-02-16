@@ -50,12 +50,5 @@ subprojects {
             sourceCompatibility = JavaVersion.VERSION_11
             targetCompatibility = JavaVersion.VERSION_11
         }
-        kotlinOptions {
-            jvmTarget = "11"
-            freeCompilerArgs = freeCompilerArgs +
-                "-Xno-call-assertions" +
-                "-Xno-param-assertions" +
-                "-Xno-receiver-assertions"
-        }
     }
 }
