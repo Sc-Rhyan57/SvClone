@@ -11,7 +11,7 @@ buildscript {
     dependencies {
         classpath("com.android.tools.build:gradle:7.0.4")
         classpath("com.aliucord:gradle:main-SNAPSHOT")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.22")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10")
     }
 }
 
@@ -36,7 +36,7 @@ subprojects {
     apply(plugin = "kotlin-android")
 
     aliucord {
-        author("Sc-rhyan57", 896604349311115304)
+        author("Sc-rhyan57", 896604349311115304L)
         updateUrl.set("https://raw.githubusercontent.com/Sc-rhyan57/SvClone/builds/updater.json")
         buildUrl.set("https://raw.githubusercontent.com/Sc-rhyan57/SvClone/builds/%s.zip")
     }
@@ -50,11 +50,6 @@ subprojects {
         compileOptions {
             sourceCompatibility = JavaVersion.VERSION_11
             targetCompatibility = JavaVersion.VERSION_11
-        }
-        tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-            kotlinOptions {
-                jvmTarget = "11"
-            }
         }
     }
 
