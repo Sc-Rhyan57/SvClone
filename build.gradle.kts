@@ -9,9 +9,9 @@ buildscript {
         maven("https://jitpack.io")
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:7.3.1")
+        classpath("com.android.tools.build:gradle:7.0.4")
         classpath("com.aliucord:gradle:main-SNAPSHOT")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.21")
     }
 }
 
@@ -42,14 +42,26 @@ subprojects {
     }
 
     android {
-        compileSdkVersion(34)
+        compileSdkVersion(30)
+        
         defaultConfig {
             minSdk = 24
-            targetSdk = 34
+            targetSdk = 30
         }
+        
         compileOptions {
             sourceCompatibility = JavaVersion.VERSION_11
             targetCompatibility = JavaVersion.VERSION_11
+        }
+        
+        tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+            kotlinOptions {
+                jvmTarget = "11"
+                freeCompilerArgs = freeCompilerArgs +
+                    "-Xno-call-assertions" +
+                    "-Xno-param-assertions" +
+                    "-Xno-receiver-assertions"
+            }
         }
     }
 
@@ -60,4 +72,8 @@ subprojects {
         discord("com.discord:discord:aliucord-SNAPSHOT")
         compileOnly("com.aliucord:Aliucord:main-SNAPSHOT")
     }
+}
+
+task<Delete>("clean") {
+    delete(rootProject.buildDir)
 }
