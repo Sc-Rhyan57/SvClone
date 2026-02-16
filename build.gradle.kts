@@ -5,12 +5,12 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        maven("https://maven.aliucord.com/snapshots")
         maven("https://jitpack.io")
+        maven("https://maven.aliucord.com/snapshots")
     }
     dependencies {
         classpath("com.android.tools.build:gradle:7.0.4")
-        classpath("com.aliucord:gradle:main-SNAPSHOT")
+        classpath("com.github.Aliucord:gradle:main-SNAPSHOT")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10")
     }
 }
@@ -19,8 +19,8 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-        maven("https://maven.aliucord.com/snapshots")
         maven("https://jitpack.io")
+        maven("https://maven.aliucord.com/snapshots")
     }
 }
 
@@ -38,6 +38,16 @@ subprojects {
     aliucord {
         updateUrl.set("https://raw.githubusercontent.com/rhyan57/SvClone/builds/updater.json")
         buildUrl.set("https://raw.githubusercontent.com/rhyan57/SvClone/builds/%s.zip")
+        author("rhyan57")
+        deploy.set(true)
+        changeLog.set("""
+            v1.0.0 - Lancamento inicial
+            - Clonar cargos, canais, emojis, stickers, icone e banner
+            - Comando /clone-server
+            - Botao Clone Guild na aba do servidor
+            - Salvar midia como ZIP
+            - Salvar progresso automaticamente
+        """.trimIndent())
     }
 
     android {
