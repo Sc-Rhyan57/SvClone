@@ -7,11 +7,12 @@ buildscript {
         mavenCentral()
         maven("https://jitpack.io")
         maven("https://maven.aliucord.com/snapshots")
+        maven("https://maven.aliucord.com/releases")
     }
     dependencies {
         classpath("com.android.tools.build:gradle:7.0.4")
         classpath("com.github.Aliucord:gradle:main-SNAPSHOT")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.22")
     }
 }
 
@@ -21,6 +22,7 @@ allprojects {
         mavenCentral()
         maven("https://jitpack.io")
         maven("https://maven.aliucord.com/snapshots")
+        maven("https://maven.aliucord.com/releases")
     }
 }
 
@@ -59,6 +61,11 @@ subprojects {
         compileOptions {
             sourceCompatibility = JavaVersion.VERSION_11
             targetCompatibility = JavaVersion.VERSION_11
+        }
+        tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+            kotlinOptions {
+                jvmTarget = "11"
+            }
         }
     }
 }
