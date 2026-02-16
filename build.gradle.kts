@@ -9,9 +9,9 @@ buildscript {
         maven("https://jitpack.io")
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:8.2.2")
+        classpath("com.android.tools.build:gradle:7.4.2")
         classpath("com.aliucord:gradle:main-SNAPSHOT")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.22")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.20")
     }
 }
 
@@ -37,7 +37,7 @@ subprojects {
 
     aliucord {
         author("Sc-rhyan57", 896604349311115304L)
-        updateUrl.set("https://raw.githubusercontent.com/Sc-rhyan57/SvClone/builds/updater.json")
+        updateUrl.set("[updater.json](https://raw.githubusercontent.com/Sc-rhyan57/SvClone/builds/updater.json) 🔗")
         buildUrl.set("https://raw.githubusercontent.com/Sc-rhyan57/SvClone/builds/%s.zip")
     }
 
