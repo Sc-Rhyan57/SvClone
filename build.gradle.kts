@@ -38,9 +38,9 @@ subprojects {
     apply(plugin = "kotlin-android")
 
     aliucord {
-        updateUrl.set("https://raw.githubusercontent.com/rhyan57/SvClone/builds/updater.json")
-        buildUrl.set("https://raw.githubusercontent.com/rhyan57/SvClone/builds/%s.zip")
-        author("rhyan57")
+        updateUrl.set("https://raw.githubusercontent.com/Sc-rhyan57/SvClone/builds/updater.json")
+        buildUrl.set("https://raw.githubusercontent.com/Sc-rhyan57/SvClone/builds/%s.zip")
+        author("Sc-rhyan57")
         deploy.set(true)
         changeLog.set("""
             v1.0.0 - Lancamento inicial
