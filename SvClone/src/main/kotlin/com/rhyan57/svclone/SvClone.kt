@@ -41,14 +41,14 @@ class SvClone : Plugin() {
             )
         ) { ctx2 ->
             val guildId = ctx2.getRequiredString("server_id")
-            val token = ctx2.getOptionalString("token")
-                ?: StoreStream.getAuthentication().authToken
+            val token = ctx2.getString("token")
+                ?: StoreStream.getAuthentication().authTokens?.token
                 ?: return@registerCommand CommandResult(
                     "Nao foi possivel obter seu token. Informe manualmente.", null, false
                 )
 
-            Utils.mainThread {
-                CloneDialog.show(ctx2.channelContext ?: ctx, guildId, token)
+            Utils.threadPool.execute {
+                CloneDialog.show(ctx, guildId, token)
             }
 
             CommandResult("Abrindo Clone Guild...", null, false)
@@ -72,7 +72,7 @@ class SvClone : Plugin() {
                     StoreStream.getGuildSelected().selectedGuildId
                 }
 
-                val token = StoreStream.getAuthentication().authToken ?: ""
+                val token = StoreStream.getAuthentication().authTokens?.token ?: ""
 
                 val btnContainer = LinearLayout(ctx).apply {
                     orientation = LinearLayout.VERTICAL
@@ -128,7 +128,7 @@ class SvClone : Plugin() {
             ProgressStateManager.clearProgress(ctx)
             return
         }
-        Utils.mainThread {
+        Utils.threadPool.execute {
             android.app.AlertDialog.Builder(ctx)
                 .setTitle("SvClone - Clonagem Pendente")
                 .setMessage(
