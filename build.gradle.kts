@@ -6,7 +6,6 @@ buildscript {
         google()
         mavenCentral()
         maven("https://maven.aliucord.com/snapshots")
-        maven("https://maven.aliucord.com/releases")
         maven("https://jitpack.io")
     }
     dependencies {
@@ -21,7 +20,6 @@ allprojects {
         google()
         mavenCentral()
         maven("https://maven.aliucord.com/snapshots")
-        maven("https://maven.aliucord.com/releases")
         maven("https://jitpack.io")
     }
 }
@@ -38,7 +36,7 @@ subprojects {
     apply(plugin = "kotlin-android")
 
     aliucord {
-        author("Sc-rhyan57")
+        author("Sc-rhyan57", 896604349311115304)
         updateUrl.set("https://raw.githubusercontent.com/Sc-rhyan57/SvClone/builds/updater.json")
         buildUrl.set("https://raw.githubusercontent.com/Sc-rhyan57/SvClone/builds/%s.zip")
     }
@@ -58,13 +56,6 @@ subprojects {
                 jvmTarget = "11"
             }
         }
-    }
-
-    repositories {
-        google()
-        mavenCentral()
-        maven("https://maven.aliucord.com/snapshots")
-        maven("https://jitpack.io")
     }
 
     dependencies {
