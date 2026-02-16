@@ -36,15 +36,15 @@ jobs:
           distribution: zulu
           java-version: 17
 
-      - name: Download Gradle Wrapper
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: "8.2"
+
+      - name: Generate Gradle Wrapper
         run: |
-          mkdir -p gradle/wrapper
-          curl -sL "https://services.gradle.org/distributions/gradle-8.2-bin.zip" -o /tmp/gradle.zip
-          unzip -p /tmp/gradle.zip "gradle-8.2/lib/plugins/gradle-wrapper-*.jar" > gradle/wrapper/gradle-wrapper.jar 2>/dev/null || \
-          curl -sL "https://github.com/gradle/gradle/raw/v8.2.0/gradle/wrapper/gradle-wrapper.jar" \
-            -o gradle/wrapper/gradle-wrapper.jar
-          curl -sL "https://raw.githubusercontent.com/gradle/gradle/v8.2.0/gradlew" -o gradlew
-          chmod +x gradlew
+          gradle wrapper --gradle-version 8.2 --distribution-type bin
+          chmod +x ./gradlew
 
       - name: Build plugin
         run: |
