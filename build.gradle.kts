@@ -38,18 +38,9 @@ subprojects {
     apply(plugin = "kotlin-android")
 
     aliucord {
+        author("Sc-rhyan57")
         updateUrl.set("https://raw.githubusercontent.com/Sc-rhyan57/SvClone/builds/updater.json")
         buildUrl.set("https://raw.githubusercontent.com/Sc-rhyan57/SvClone/builds/%s.zip")
-        author("Sc-rhyan57")
-        deploy.set(true)
-        changeLog.set("""
-            v1.0.0 - Lancamento inicial
-            - Clonar cargos, canais, emojis, stickers, icone e banner
-            - Comando /clone-server
-            - Botao Clone Guild na aba do servidor
-            - Salvar midia como ZIP
-            - Salvar progresso automaticamente
-        """.trimIndent())
     }
 
     android {
